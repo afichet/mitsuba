@@ -2,6 +2,10 @@ Import('env', 'sys', 'os')
 
 # Core library environment with OpenEXR, libpng and libjpeg
 coreEnv = env.Clone()
+if 'IMATHINCLUDE' in coreEnv:
+        coreEnv.Prepend(CPPPATH=env['IMATHINCLUDE'])
+if 'IMATHLIB' in coreEnv:
+        coreEnv.Prepend(LIBPATH=env['IMATHLIB'])
 if 'OEXRLIBDIR' in coreEnv:
         coreEnv.Prepend(LIBPATH=env['OEXRLIBDIR'])
 if 'OEXRINCLUDE' in coreEnv:

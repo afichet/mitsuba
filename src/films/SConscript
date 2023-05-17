@@ -1,6 +1,10 @@
 Import('env', 'plugins')
 
 filmEnv = env.Clone()
+if 'IMATHINCLUDE' in filmEnv:
+        filmEnv.Prepend(CPPPATH=env['IMATHINCLUDE'])
+if 'IMATHLIB' in filmEnv:
+        filmEnv.Prepend(LIBPATH=env['IMATHLIB'])
 if 'OEXRLIBDIR' in filmEnv:
         filmEnv.Prepend(LIBPATH=env['OEXRLIBDIR'])
 if 'OEXRINCLUDE' in filmEnv:
